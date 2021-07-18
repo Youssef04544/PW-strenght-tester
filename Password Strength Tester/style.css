@@ -21,7 +21,34 @@ body {
   text-align: center;
 }
 
+.strength-bar {
+  width: 80%;
+  max-width: 300px;
+  height:30px;
+  border: 2.5px solid rgb(103, 66, 236);
+  border-radius:15px;
+  position:relative;
+  overflow: hidden;
+}
+
+.strength-bar::before {
+  --scale-size: 0;
+
+  content: "";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  border-radius:15px;
+  background-color: rgb(130, 102, 233);
+  transform-origin:left;
+  transform: scaleX(var(--scale-size));
+  transition: transform 200ms ease-in-out;
+}
+
 #pw {
+  margin-top:10px;
   max-width: 300px;
   width:80%;
   background-color:transparent;
@@ -39,4 +66,8 @@ body {
 .fullscreen-container .info-message {
   margin-top: 10px;
   opacity: 0.6;
+}
+
+.fullscreen-container .info-message.disable {
+  display: none;
 }
